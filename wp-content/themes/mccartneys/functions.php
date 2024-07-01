@@ -401,10 +401,10 @@ if ( $query->have_posts() ) {?>
                 while ( $query->have_posts() ) {
                     $query->the_post();?>
 
-                    <div class="row g-0">
-						<div class="col-12 col-lg-7">
+                    <div class="row g-0 flex-column-reverse flex-md-row">
+						<div class="col-12 col-md-7">
 						<div class="col-left">
-							<h2><?php the_title();?></h2>
+							<h2 class="d-none d-md-block"><?php the_title();?></h2>
 							<?php the_excerpt(); ?>
 							
 							<div class="sale-nmbr">
@@ -416,7 +416,7 @@ if ( $query->have_posts() ) {?>
 							<span><?php the_field('sales_number');?></span>
 							</div>
 							
-							<div class="sale-nmbr">
+							<div class="sale-nmbr d-none d-md-block">
 							<?php
 							$letting_number_icon = get_field('lettings_number_icon');
 							if( !empty($letting_number_icon) ):?>
@@ -443,7 +443,7 @@ if ( $query->have_posts() ) {?>
 
 
 								<?php if( have_rows('office_share_buttons') ): ?>
-							<ul class="share-buttons-wrap">
+							<ul class="share-buttons-wrap d-none d-md-flex">
 							<?php while( have_rows('office_share_buttons') ): the_row(); ?>
 								
 										<li class="item">
@@ -465,8 +465,9 @@ if ( $query->have_posts() ) {?>
 						</div>
                     	
 						<?php if ( has_post_thumbnail() ) {?>
-                        <div class="col-12 col-lg-5">
+                        <div class="col-12 col-md-5">
 						<div class="col-right">
+						<h2 class="d-block d-md-none"><?php the_title();?></h2>
                        <?php  the_post_thumbnail( 'full', array( 'class' => 'img-fluid' ) );?>   
 					</div>
 						</div>
@@ -571,7 +572,7 @@ function recent_property_tabs_shortcode() {
                 <?php }?>
                 </div>
             <?php } else {?>
-                <p style="margin-top: 25px;">No properties found in this category.</p>
+                <p style="margin: 25px 0;">No properties found in this category.</p>
             <?php }
 
             wp_reset_postdata();?>

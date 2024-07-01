@@ -81,7 +81,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row g-0 align-items-center divider">
+			<div class="row g-0 align-items-center divider flex-column-reverse flex-lg-row">
 				<div class="col-12 col-lg-9">
 				<?php if( have_rows('footer_company_logos', 'option') ): ?>
 							<div class="logos-wrap">
@@ -115,3 +115,21 @@
 
 </body>
 </html>
+
+
+
+
+<!-- <button id="clickBtn">Click Me To See PopUp</button>
+<div id="popup">
+    <div class="popup-container">
+        <div class="popup">
+            <div class="close-popup" id="closeBtn"><a href="#">X</a></div>
+            <h2>Custom Popup</h2>
+            <p>
+                This is a custom popup. You can just put any content behind it. Also you can apply any custom style in this popup.
+            </p>
+            <a href="#" class="popup-btn">View Details</a>
+        </div>
+    </div>
+</div> -->
+

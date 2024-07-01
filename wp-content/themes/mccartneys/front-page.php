@@ -180,7 +180,7 @@
             if( !empty($cta_box_bg) ):?>
             <div class="row g-0 align-items-center" style="background-image: url(<?php echo $cta_box_bg['url']; ?>);">
             <?php endif; ?>
-                <div class="col-12 col-lg-5">
+                <div class="col-12 col-md-5">
                     <div class="col-left">
                     <h3><?php the_field('cta_box_title');?></h3>
                     <p><?php the_field('cta_box_description'); ?></p>
@@ -195,7 +195,7 @@
                         <?php endif; ?>
                     </div>
                 </div>
-                <div class="col-12 col-lg-7">
+                <div class="col-12 col-md-7">
                     <div class="col-right">
                     <?php
                     $cta_box_img = get_field('cta_box_image');
@@ -212,20 +212,25 @@
         <!-- Fine country -->
         <section class="fine-country">
             <div class="container">
-                <div class="row g-2 align-items-center">
-                    <div class="col-12 col-lg-6">
+                <div class="row g-4 align-items-center">
+                    <div class="col-12 col-md-6">
+                    <?php
+                        $fine_title_img = get_field('fine_title_image');
+                        if( !empty($fine_title_img) ):?>
+                        <img src="<?php echo $fine_title_img['url']; ?>" alt="<?php echo $fine_title_img['alt']; ?>" class="title-img d-block d-md-none">
+                        <?php endif; ?>
                     <?php
                     $fine_col_left_img = get_field('fine_country_image');
                     if( !empty($fine_col_left_img) ):?>
                     <img src="<?php echo $fine_col_left_img['url']; ?>" alt="<?php echo $fine_col_left_img['alt']; ?>" class="w-100">
                     <?php endif; ?>
                     </div>
-                    <div class="col-12 col-lg-6 d-flex justify-content-end">
+                    <div class="col-12 col-md-6 d-flex justify-content-end">
                         <div class="col-right">
                         <?php
                         $fine_title_img = get_field('fine_title_image');
                         if( !empty($fine_title_img) ):?>
-                        <img src="<?php echo $fine_title_img['url']; ?>" alt="<?php echo $fine_title_img['alt']; ?>" class="w-100">
+                        <img src="<?php echo $fine_title_img['url']; ?>" alt="<?php echo $fine_title_img['alt']; ?>" class="w-100 d-none d-md-block">
                         <?php endif; ?>
                         <p><?php the_field('fine_country_description');?></p>
                         <?php 
@@ -252,14 +257,14 @@
                         <div class="box-title">
                             <h2><?php the_field('showcase_title'); ?></h2>
                         </div>
-                        <p class="description"><?php the_field('showcase_description');?></p>
+                        <p class="description d-none d-md-block"><?php the_field('showcase_description');?></p>
                     </div>
                 </div>
                 <div class="numbers-wrap">
                 <?php if( have_rows('numbers_repeater_showcase') ): ?>
             <div class="row g-4">
             <?php while( have_rows('numbers_repeater_showcase') ): the_row(); ?>
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-md-6">
                         <div class="items-wrap">
                         <?php
                         $showcase_logo = get_sub_field('showcase_number_image');
@@ -287,7 +292,7 @@
             <h2><?php the_field('insights_title', 'option'); ?></h2>
                 <p><?php the_field('insights_description', 'option'); ?></p>
             </div>
-            <div class="depart-slider depar">
+            <div class="depart-slider insigh">
             <?php
                 $args = array(
                     'post_type' => 'Insights',
